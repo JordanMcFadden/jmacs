@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jordan McFadden">
+    <meta name="description" content="This lesson is about CSS Floats and Clears">
+    <link rel="stylesheet" href="../css/floatsclears.css" type="text/css">
+    <title>CSS Floats & Clears</title>
+</head>
+
+<body>
+    <section>
+        <div class="block left">Float</div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex error accusamus incidunt iste dolore
+            consequuntur
+            libero, iusto fugiat fugit porro?
+        </p>
+    </section>
+    <p>
+        Deserunt corporis ea officiis quaerat accusantium necessitatibus sunt deleniti, a saepe quis itaque ducimus iste
+        fuga alias, laboriosam nemo cumque?
+    </p>
+    <p>
+        Fugiat explicabo facere eum assumenda itaque inventore iste quisquam adipisci facilis aut. Amet porro aut
+        molestiae dicta voluptate iure facilis?
+    </p>
+    <div class="block right">Float</div>
+    <div class="clear"></div>
+    <p>
+        Ipsam sed dolorum et, vel harum aperiam sequi quis? Modi, quidem veniam placeat est cum iure quia beatae
+        repudiandae doloribus.
+    </p>
+    <p>
+        A laboriosam deleniti omnis iure, sunt consectetur nesciunt cupiditate alias, quam blanditiis laborum modi
+        aliquam architecto molestiae repellendus debitis tenetur.
+    </p>
+    <p>
+        A laboriosam deleniti omnis iure, sunt consectetur nesciunt cupiditate alias, quam blanditiis laborum modi
+        aliquam architecto molestiae repellendus debitis tenetur.
+    </p>
+    <p>
+        A laboriosam deleniti omnis iure, sunt consectetur nesciunt cupiditate alias, quam blanditiis laborum modi
+        aliquam architecto molestiae repellendus debitis tenetur.
+    </p>
+</body>
+
+</html>

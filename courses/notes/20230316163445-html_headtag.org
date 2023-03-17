@@ -1,0 +1,78 @@
+:PROPERTIES:
+:ID:       331DBBA3-6CFC-4A61-BE60-11CF9DF3FB84
+:END:
+#+title: html-headtag
+#+author: jordan mcfadden
+#+date: march 16, 2023
+#+description: fuck w/ this page
+#+category: brain
+
+* head tag content
+------------------
+>> content inside of the head tag is all meta data. don't know what meta
+   data stands for but i do know that none of that info appears on actual
+   document in browser. meta tags do not have closing tags. rel stands for
+   relation.
+
+
+* meta charset
+--------------
+>> tells the browser the type of unicode decoder
+
+#+begin_src html
+<meta charset="UTF-8">
+#+end_src
+
+
+* meta author
+-------------
+>> tells the browser the author of the document.
+
+#+begin_src html
+<meta name="author" content="Jordan McFadden">
+#+end_src
+
+
+* meta description
+------------------
+>> tells the browser what the page is about.
+
+#+begin_src html
+<meta name="description" content="Whatever the content of the page is">
+#+end_src
+
+
+* meta viewport
+---------------
+>> enables responsive design
+
+#+begin_src html
+<meta name="viewport" content="width=device-width", initial-scale="1.0"> 
+#+end_src
+
+
+* title
+-------
+>> what text appears in the tab in the browser
+
+#+begin_src html
+<title> DOCUMENT </title>
+#+end_src
+
+
+* icons
+-------
+>> what icon appears in the tab in the browser
+
+#+begin_src html
+<link rel="icon" href="path" type="image/x-icon">
+#+end_src
+
+
+* stylesheet
+------------
+>> link to css is found in the html tag
+
+#+begin_src html
+<link rel="stylesheet" href="path" type="text/css">
+#+end_src

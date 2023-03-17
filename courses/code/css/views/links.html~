@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jordan McFadden">
+    <meta name="description" content="This lesson is about CSS link">
+    <link rel="stylesheet" href="../css/links.css" type="text/css">
+    <title>CSS Links</title>
+</head>
+
+<body>
+    <header>
+        <h1>CSS Links</h1>
+    </header>
+
+    <main>
+        <p>
+            Welcome to my page about <a href="units.html">UNITS</a>.
+        </p>
+        <p>
+            Actually.. that isn't a good search phrase.
+        </p>
+        <p>
+            Let's search for hypertext links <a href="units.html">UNITS</a> instead!
+        </p>
+        <p>
+            I created page one with info about <a href="units.html">UNITS</a>.
+        </p>
+        <p>
+            I created page two with info about <a href="selectors.html">Selectors</a>.
+        </p>
+
+    </main>
+</body>
+
+</html>

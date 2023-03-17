@@ -1,0 +1,56 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    font-size: 2rem;
+    font-family: monospace;
+}
+
+p
+{
+    background-color: lightgray;
+}
+
+.opposite
+{
+    background-color: #1e1e1e;
+    color: whitesmoke;
+    display: inline-block;
+    padding: 4rem;
+    height: 200px;
+    margin-top: 100px;
+}
+
+nav
+{
+    margin-top: 2rem;
+}
+
+ul
+{
+    list-style-type: none;
+    padding: 0.5rem;
+    text-align: right;
+    background-color: #1e1e1e;
+}
+
+li
+{
+    display: inline-block;
+    margin-inline: 0.5rem;
+}
+
+li, a
+{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+li a:hover, li a:focus
+{
+    text-decoration: underline;
+}

@@ -1,0 +1,56 @@
+:PROPERTIES:
+:ID:       F505431B-CFCC-4AB5-961C-CC9A3308BA9C
+:END:
+#+title: react-applyingcss
+#+author: jordan mcfadden
+#+date: march 16, 2023
+#+description: fuck w/ this page
+#+category: brain
+
+* all about preference
+----------------------
+>> just like in vanilla html & css you can either put styles into one
+   stylesheet or multiple. I will probably end up making component
+   folders & style folders.
+
+
+* style components
+------------------
+>> Dave speaks about style components being a good option for using css in
+   react but he does not go into detail, might check it out later.
+
+
+* in-line styling normal
+------------------------
+>> Can apply css inside of element just like in vanilla html & css but
+   instead of it being like a attribute it is like an object.
+   
+#+begin_src js
+        <header style={{
+            backgroundColor: 'mediumblue',
+            color: '#fff'
+        }}>
+#+end_src
+
+
+* in-line styling variables
+---------------------------
+>> Can apply css inside of element by using variable names instead of
+   raw css.
+
+#+begin_src js
+  // outside return & inside return 
+	  const headerStyle = {
+	      backgroundColor: 'royalblue',
+	      color: '#fff
+	  };
+
+	  <header style={headerStyle}>
+#+end_src
+
+
+* linking to stylesheet
+-----------------------
+>> As said previously css can also be applied to each component seperately
+   then imported or there can be one file that targets components & elements
+   alike.

@@ -1,0 +1,789 @@
+#+property: header-args:emacs-lisp :tangle ~/.emacs.d/init.el
+#+title: configuration
+#+author: jordan mcfadden
+#+date: february 14, 2023
+#+description: don't fuck w/ this page
+#+category: system
+
+                                              /in the beginning there was only darkness/
+					     
+		        /this is the config page. if you have any questions go to the [[file:help.org][help]] page or go to [[file:main.org][main]]/
+* TODO system
+-------------
+>> what needs to be fixed?
+
+  - need to finish setting up C
+
+    
+* header/tangle
+---------------
+>> A list of comments I put at the beginning of the file. Basic info like
+   my name, date, etc..
+   
+#+begin_src emacs-lisp
+  ;; --------------------------------------------------
+  ;; February 1, 2023
+  ;; Jordan McFadden
+  ;; System Configurations
+  ;; --------------------------------------------------
+
+  (defun efs/org-babel-tangle-config ()
+    (when (string-equal (buffer-file-name)
+	  (expand-file-name "~/.emacs.d/jmacs/config.org"))
+
+  (let ((org-confirm-babel-evaluate nil))
+	  (org-babel-tangle))))
+
+  (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'efs/org-babel-tangle-config)))
+  ;; --------------------------------------------------
+  ;; end tangle/header
+  ;; --------------------------------------------------
+#+end_src
+
+
+* built-in's
+------------
+>> All of the built in variables that I have set, each one has a comment
+   that describes there functions. Most if not all were recommended by
+   System Crafter's and a few others I learned from along the way.
+   
+#+begin_src emacs-lisp
+  ;; --------------------------------------------------
+  ;; built-ins
+  ;; --------------------------------------------------
+  ;;   setting user name
+  ;;   moving cutstom vars to customvars.el
+  ;;   disabling the cl warning
+  ;;   disabling backup files,
+  ;;   disabling blinking cursor when in command mode
+  ;;   enabling auto save
+  ;;   saves some start up time due to font loading
+  ;;   loading the customvar.el w/o warnings
+  ;;   setting the cursor to be regular when in normal mode
+  ;;   disabling tool bar
+  ;;   disabaling scroll bar     
+  ;;   setting bookmark for recently opened
+  ;;   setting bookmakr for last known position in file
+  ;;   enabling bracket/parentheses pairing
+  ;;   enabling auto revert/refresh file when change detected
+  ;;   enabling always do syntax highlighting     
+  ;;   enabling line numbers
+  ;;   enabling y or no instead of yes or no in command line
+  ;;   setting escape key to quit buffer
+  ;;   setting right key to go forward in tabs
+  ;;   setting left key to go backwards in tabs
+  ;;   setting up key to open/close treemacs
+  ;;   setting down key to open brain nodes
+  ;;   inhibit startup
+  ;;   inhibit scratch message
+  ;; --------------------------------------------------
+  (setq user-full-name "Jordan McFadden"
+	custom-file (locate-user-emacs-file "custom-vars.el")
+	byte-compile-warning '(cl-functions)
+	make-backup-file nil
+	blink-cursor-mode nil
+	auto-save-default t
+	inhibit-compacting-font-caches t
+	package-enable-at-startup nil)
+
+  (load custom-file 'noerror 'nomessage)
+  (modify-all-frames-parameters (list (cons 'cursor-type 'bar)))
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (recentf-mode 1)
+  (save-place-mode 1)
+  (electric-pair-mode 1)
+  (global-auto-revert-mode 1)
+  (global-font-lock-mode 1)
+  (global-display-line-numbers-mode 1)
+
+  (defalias 'yes-or-no-p 'y-or-n-p)
+
+  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+  (global-set-key (kbd "<right>") 'centaur-tabs-forward)
+  (global-set-key (kbd "<left>") 'centaur-tabs-backward)
+  (global-set-key (kbd "<up>") 'treemacs)
+  (global-set-key (kbd "<down>") 'org-roam-node-find)
+
+  (setq inhibit-startup-message t) 
+  (setq initial-scratch-message nil)
+  ;; -------------------------------------------------- 
+  ;; end built-ins
+  ;; --------------------------------------------------
+#+end_src
+
+   
+* package manager
+-----------------
+>> Using three package archives recommended by System Crafter's. Don't
+   know if all three of them are even relevant to keep inside of my init
+   file but I figure it doesn't hurt. Each one MELPA, ELPA,and ORG has
+   a website where you can download but from but I use use-package
+   everytime I download something so i never really visit them.
+
+#+begin_src emacs-lisp 
+  ;; --------------------------------------------------
+  ;; package manager
+  ;; --------------------------------------------------
+  ;; allowing the use of packages
+  ;; setting up package archives
+  ;; initializing packages
+  ;; downloading use-package if it isn't installed 
+  ;; initialzing package
+  ;; setting use package to always ensure
+  ;; --------------------------------------------------	
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+   (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+	(url-retrieve-synchronously
+	 "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+	 'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+  (straight-use-package 'use-package)
+  (setq straight-use-package-by-default t)
+  ;; --------------------------------------------------
+  ;; end package manager
+  ;; --------------------------------------------------
+#+end_src 
+
+
+* version control
+-----------------
+>> Supposedly Magit is supposed to be one of the best interfaces for Git.
+   Haven't used it too much but when i start using it more often I will
+   write a better description.
+   
+#+begin_src emacs-lisp
+;; --------------------------------------------------
+;; version control
+;; --------------------------------------------------
+;; downloading magit
+;; --------------------------------------------------
+(use-package magit)
+;; --------------------------------------------------
+;; end version control
+;; --------------------------------------------------
+#+end_src 
+
+
+* xah's flykey's
+----------------
+>> Xah's Flykey's are essentially a rework of Emacs original keybinding
+   system. Supposed to be way better ergonomically than Emacs binding
+   system as well as evil which is also a popular package that does
+   something similar to Xah's.
+   
+#+begin_src emacs-lisp
+;; --------------------------------------------------
+;; xah-fly-keys
+;; --------------------------------------------------
+;; adding xah-fly-keys to load path (manual-package)
+;; allowing the use of xah-fly-keys
+;; setting default set layout
+;; enabling xah-fly-keys at all times
+;; --------------------------------------------------     
+(add-to-list 'load-path "~/.emacs.d/jmacs/hacks/")
+(require 'xah-fly-keys)
+(xah-fly-keys-set-layout "qwerty")
+(xah-fly-keys 1)
+;; --------------------------------------------------
+;; end xah-fly-keys
+;; --------------------------------------------------
+#+end_src 
+
+   
+* fonts
+-------
+>> I usually balance between three to five fonts depending on my mood.
+   Generally like using monospace font because I work with code most of
+   the time. If I find a font i like I usually just add it to the list.
+   Have to download themes from the internet they aren't packages you
+   download from emacs or anything like that. I don't think at least.
+
+#+begin_src emacs-lisp
+;; --------------------------------------------------
+;; fonts
+;; --------------------------------------------------
+;; operator mono
+;; cutive mono
+;; firacode
+;; jetbrains mono
+;; --------------------------------------------------
+;; setting the font family
+;; setting the font and font size
+;; --------------------------------------------------
+(when (member "Cutive Mono" (font-family-list))
+  (set-frame-font "Cutive Mono-14" t t))
+;; --------------------------------------------------
+;; end fonts
+;; --------------------------------------------------
+#+end_src
+
+	   
+* doom themes & all the icons
+-----------------------------
+>> I use Doom Themes because they are good themes, have a variety of
+   diffrent options and work good with some of the other packages that
+   I use. However, I haven't found a light theme I really like. It's
+   okay though they have like 80 themes so I'm sure I will find one.
+   All The Icons are the icons that go along with the modeline,
+   tabs, and package view so it's an important package to have. Plus
+   I love the icons.
+   
+#+begin_src emacs-lisp
+   ;; --------------------------------------------------
+   ;; doom themes
+   ;; --------------------------------------------------
+   ;; dark
+   ;;  challenger-deep(favorite)
+   ;;  molokai
+   ;;  gruvbov
+   ;;  moonlight
+   ;;  fairy-floss
+   ;;  dracula(favorite)
+   ;;  rouge
+   ;;  tokyo-night
+   ;;  outrun-electric
+   ;;  ephemeral(favorite)
+   ;; light
+   ;;  solarized-light
+   ;;  gruvbox-light
+   ;; --------------------------------------------------
+   ;; loading theme
+   ;; downloading doom themes package
+   ;; enabling bold styling
+   ;; enabling italicized styling
+   ;; enabling visual bell
+   ;; configuring with org
+   ;; downloading doom themes
+   ;; adding hook to show icons in dired buffers
+   ;; --------------------------------------------------
+   (use-package doom-themes
+     :config
+     (setq doom-themes-enable-bold t
+	   doom-themes-enable-italic t)
+   (doom-themes-visual-bell-config)
+   (doom-themes-org-config))
+   (load-theme 'doom-challenger-deep t)
+
+   (use-package all-the-icons)
+   ;; --------------------------------------------------
+   ;; end doom themes
+   ;; --------------------------------------------------
+#+end_src
+	   
+	   
+* modeline
+---------------
+>> The normal mode line is extremely ugly so this will probably be a
+   package that I use for forever. It comes with all-the icons which
+   are the icons I use for everything. I have had zero problems with
+   this package since downloading it.
+
+#+begin_src emacs-lisp
+  ;; --------------------------------------------------
+  ;; doom mode line
+  ;; --------------------------------------------------
+  ;; downloading doom mode line package
+  ;; enabling doom mode line
+  ;; --------------------------------------------------
+  (use-package doom-modeline
+    :init
+    (doom-modeline-mode 1)
+    :config
+    (setq doom-modeline-minor-modes t))
+  ;; --------------------------------------------------
+  ;; end doom mode line
+  ;; --------------------------------------------------
+#+end_src 
+
+
+* treemacs
+----------
+>> Should've used Emacs more without this package so I could have seen how
+   efficent my workflow was without it because now it feels wrong to not
+   use it. To be able to see all of the file's on your system with such
+   ease is really a necessity with editors.
+
+#+begin_src emacs-lisp
+  ;; --------------------------------------------------
+  ;; treemacs
+  ;; --------------------------------------------------
+  ;; downloading treemacs package
+  ;; downloading treemacs all-the-icons
+  ;; loading all-the-icons for treemacs
+  ;; --------------------------------------------------
+  (use-package treemacs
+    :config
+    (treemacs-follow-mode -1))
+
+  (use-package treemacs-all-the-icons)
+  (treemacs-load-theme "all-the-icons")
+
+  (treemacs)
+  ;; --------------------------------------------------
+  ;; end treemacs
+  ;; --------------------------------------------------
+
+#+end_src
+
+
+* centaur tabs
+>> At first I thought this package wasn't really necessary because it doesn't
+   list the buffers like I would like it to but there really isn't any other
+   package that fit's into my configuration like this one does. It pulls
+   everything together and eventually I would like to hack it so it lists
+   all open buffers.
+
+#+begin_src emacs-lisp
+;; --------------------------------------------------
+;; centaur tabs
+;; --------------------------------------------------
+;; downloading centaur tabs package
+;; enabling centaur tabs
+;; enabling icons inside of the tabs
+;; enabling icons to turn grey if there tab isn't active
+;; enabling bar on active tabs
+;; enabling a marker for when files have been changed
+;; setting the marker to say "changes"
+;; --------------------------------------------------
+(use-package centaur-tabs
+ :demand
+ :config
+ (centaur-tabs-mode t)
+ (setq centaur-tabs-set-icons t
+	centaur-tabs-gray-out-icons 'buffer
+	centaur-tabs-set-bar 'left
+	centaur-tabs-set-modified-marker t
+	centaur-tabs-modified-marker "changes"))
+;; --------------------------------------------------
+;; end centaur tabs
+;; --------------------------------------------------
+#+end_src
+
+      
+* vertico
+---------
+>> Vertico is a completion framework for Emacs. It's supposed to be
+   lightweight and easy to use and to be honest it has been. After
+   downloading it I haven't had any problems and Emacs was way easier
+   to use so I have no complaints and will probably stick with it.
+   Completion framework is basically additional help in the mode line
+   if you forget. So all of the commands that appear when you start
+   typing in command mode are due to Vertico.
+
+   #+begin_src emacs-lisp
+;; --------------------------------------------------
+;; vertico
+;; --------------------------------------------------
+;; downloading vertico package
+;; enabling vertico 
+;; --------------------------------------------------
+(use-package vertico
+ :init
+ (vertico-mode))
+;; --------------------------------------------------
+;; end vertico
+;; --------------------------------------------------
+#+end_src 
+   
+
+* save history
+--------------
+>> Adds additional support to the completion by saving past commands. Definetly
+   a necessary package for me because I'm new and forget commands easily. However,
+   I don't see myself needing to get rid of this package ever even when when I get
+   comfortable with Emacs to the point where I won't need a lot of help.
+
+#+begin_src emacs-lisp
+;; --------------------------------------------------
+;; save history
+;; --------------------------------------------------
+;; downloading save history package
+;; enabling save history 
+;; --------------------------------------------------
+(use-package savehist
+ :init
+ (savehist-mode))
+;; --------------------------------------------------
+;; end save history
+;; --------------------------------------------------
+#+end_src 
+   
+      
+* which key
+-----------
+
+>> More support to the completion but this one is pretty necessary. It basically
+   shows you all the commands that are binded to the pattern you are trying to
+   use. So lets say I just press "SPC" it will show me all of the commands that
+   start with "SPC" and are followed by something for example "SPC-i-o" which
+   shows all of the bookmarks.
+
+#+begin_src emacs-lisp
+  ;; --------------------------------------------------
+  ;; which key
+  ;; --------------------------------------------------
+  ;; downloading which key package
+  ;; enabling which key
+  ;; turning off mode line display
+  ;; setting 3 second before which key display
+  ;; --------------------------------------------------
+  ;; which-key
+  (use-package which-key
+   :init (which-key-mode)
+   :diminish which-key-mode
+   :config
+   (setq which-key-idle-delay 0.3)
+   (which-key-setup-side-window-right))
+  ;; --------------------------------------------------
+  ;; end which key
+  ;; --------------------------------------------------
+#+end_src 
+
+
+* rainbow delimiters
+--------------------
+>> Rainbow Delimiters highlight nested parentheses making it easier to see
+   what parentheses or matched so baasically. You never have to worry about
+   unbalanced parentheses again.
+
+#+begin_src emacs-lisp
+;; --------------------------------------------------
+;; rainbow delimiters
+;; --------------------------------------------------
+;; downloading rainbow delimiters package
+;; turning it on in most programming buffers
+;; --------------------------------------------------
+(use-package rainbow-delimiters
+  :hook
+  (prog-mode . rainbow-delimiters-mode))
+;; --------------------------------------------------
+;; end rainbow delimiters
+;; --------------------------------------------------
+#+end_src
+
+
+* flycheck
+----------
+>> Flycheck is a syntax checker for Emacs. Necessary to know the syntax erros
+   in lsp mode as well as in Emacs Lisp. Haven't used it very much so will
+   need to write a better review but it has been recommended in all the videos
+   I have watched on necessary packages for LSP mode.
+
+#+begin_src emacs-lisp
+  ;; --------------------------------------------------
+  ;; flycheck
+  ;; --------------------------------------------------
+  ;; downloading flycheck
+  ;; turning it on in all buffers
+  ;; --------------------------------------------------
+  (use-package flycheck
+    :init (global-flycheck-mode))
+  ;; --------------------------------------------------
+  ;; end flycheck
+  ;; --------------------------------------------------
+#+end_src
+
+
+* impatient mode
+----------------
+>> Impatient mode is basically live server in VS Code. In a way it's better
+   because it lists all the files you can run a server on in the browser.
+   It requires a command to start so I guess you can say that Live Server
+   is better in that way but that's really it's only con.
+
+#+begin_src emacs-lisp
+  ;; --------------------------------------------------
+  ;; impatient
+  ;; --------------------------------------------------
+  ;; downloading impatient mode
+  ;; --------------------------------------------------
+  (use-package impatient-mode)
+  ;; --------------------------------------------------
+  ;; end impatient 
+  ;; --------------------------------------------------
+#+end_src
+
+
+* yasnippet
+-----------
+>>
+
+#+begin_src emacs-lisp
+  ;; --------------------------------------------------
+  ;; yasnippet
+  ;; --------------------------------------------------
+  ;; downloading yasnippet
+  ;; setting yasnippet globally
+  ;; downloading snippets for react
+  ;; --------------------------------------------------
+  (use-package yasnippet
+    :config
+    (setq yas-snippet-dirs '("~/.emacs.d/jmacs/snippets"))
+    (yas-global-mode 1))
+
+  (use-package react-snippets)
+  ;; --------------------------------------------------
+  ;; end yasnippet
+  ;; --------------------------------------------------
+#+end_src
+
+
+* company mode
+--------------
+>> Company Mode is basically a completion package that shows a box inside of
+   files when you a write a function or variable. It can be used inside of
+   most if not all different types of mode. I have it configured so it
+   automatically activates when I'm inside of a Language Server. Can configure
+   so that it only works inside of LSP mode but i want to learn elisp aswell
+   and Company Mode will most likely be super useful for that. 
+
+#+begin_src emacs-lisp
+  ;; --------------------------------------------------
+  ;; company
+  ;; --------------------------------------------------
+  ;; downloading company package
+  ;; enabling company in all buffers
+  ;; setting company mode active after a string length of one
+  ;; setting company mode to appear after one second
+  ;; downloading company box package
+  ;; enabling company box when company mode is active
+  ;; --------------------------------------------------
+  (use-package company
+    :init
+    (add-hook 'after-init-hook 'global-company-mode)
+    (add-hook 'web-mode-hook 'company-mode)
+    (add-hook 'lsp-mode 'company-mode)
+    :config
+    (setq company-minimum-prefix-length 1
+	  company-idle-delay 0.1))
+
+  (use-package company-box
+    :hook (company-mode . company-box-mode))
+
+  (use-package company-web
+    :init
+    (add-hook 'web-mode-hook (lambda ()
+			    (set (make-local-variable 'company-backends) '(company-css company-web-html)))))
+  ;; --------------------------------------------------
+  ;; end company
+  ;; --------------------------------------------------
+#+end_src 
+
+
+* lsp 
+--------------------------------
+
+>> Lsp allows advanced code editing functionallity in Emacs. Instead of having
+   to dowload a whole bunch of packages LSP mode provides most of the
+   functionallity
+
+  #+begin_src emacs-lisp
+    ;; --------------------------------------------------
+    ;; lsp
+    ;; --------------------------------------------------
+    ;; downloading lsp package
+    ;; setting commands
+    ;; enabling which-key integration
+    ;; downloading lsp-treemacs package
+    ;; telling emacs to load it after lsp mode
+    ;; --------------------------------------------------
+    (use-package lsp-mode
+      :commands (lsp lsp-deferred)
+      :config
+      (lsp-enable-which-key-integration t))
+    ;; --------------------------------------------------
+    ;; end lsp
+    ;; --------------------------------------------------
+   #+end_src 
+
+
+* org
+-----
+>> Org is in Emacs as a default. I just added the package because the one in
+   Emacs originally isn't always the most recent one. You obviously know what
+   Org mode is because you are writing in it right now so there really isn't
+   too much to say. Org roam allows links in page plus a whole bunch of other
+   stuff that I never got around to using even though I saw org-roam-ui and
+   wanted to dive into head first without realizing it's lowkey a lot of work
+   and i'm OCD so it was never gonna work between us. Babel allows source
+   blocks and writing to different files.
+
+  #+begin_src emacs-lisp
+    ;; --------------------------------------------------
+    ;; org
+    ;; --------------------------------------------------
+    ;; downloading org package
+    ;; changing the ... after headings to ~
+    ;; hiding the ** and // when bolding or italizing
+    ;; downloading org roam package
+    ;; allowing babel to load languages
+    ;; allowing the loading of elisp
+    ;; allowing the loading of python
+    ;; automatically tangle config.org file when we save it
+    ;; turning off auto yes or no message on save
+    ;; --------------------------------------------------
+    (use-package org
+     :config
+     (setq org-ellipsis " ▾"
+	   org-hide-emphasis-markers t))
+
+    (use-package org-superstar
+      :config
+      (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
+
+    (use-package org-roam
+      :custom (org-roam-directory "~/.emacs.d/jmacs/courses/notes")
+      :bind (("C-c n l" . org-roam-buffer-toggle)
+	     ("C-c n f" . org-roam-node-find)
+	     ("C-c n i" . org-roam-node-insert))
+      :config
+      (org-roam-setup))
+
+    (use-package org-roam-ui
+     :config
+	(setq org-roam-ui-sync-theme t
+	      org-roam-ui-follow t
+	      org-roam-ui-update-on-save t
+	      org-roam-ui-open-on-start t))
+    ;; --------------------------------------------------
+    ;; end org
+    ;; --------------------------------------------------
+   #+end_src 
+
+   
+* scheme
+--------
+>>
+
+#+begin_src emacs-lisp
+  ;; --------------------------------------------------
+  ;; scheme
+  ;; --------------------------------------------------
+  ;; downloading racket-mode
+  ;; --------------------------------------------------
+  (use-package racket-mode)
+
+  (use-package ob-racket
+  :config
+  (add-hook 'ob-racket-pre-runtime-library-load-hook
+	      #'ob-racket-raco-make-runtime-library)
+  :straight (ob-racket
+	       :type git :host github :repo "hasu/emacs-ob-racket"
+	       :files ("*.el" "*.rkt")))
+  ;; --------------------------------------------------
+  ;; end scheme
+  ;; --------------------------------------------------
+#+end_src
+
+   
+* html & css
+---------------------
+>> I use Web Mode and Emmet Mode for HTML, CSS, and Javascript. The tricky
+   part is connecting it to LSP and Company. Once I get it setup I will come
+   back and change this review but until then this is just placeholder text.
+
+#+begin_src emacs-lisp
+  ;; --------------------------------------------------
+  ;; html/css/javascript
+  ;; --------------------------------------------------
+  ;; downloading emmet mode
+  ;; --------------------------------------------------
+  (use-package emmet-mode
+     :init
+     (add-hook 'css-mode-hook  'emmet-mode)
+     (add-hook 'web-mode-hook 'emmet-mode))
+
+  (use-package web-mode
+     :hook (web-mode . lsp-deferred))
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
+  ;; --------------------------------------------------
+  ;; end html
+  ;; --------------------------------------------------
+#+end_src
+
+
+* typecript & javascript
+------------
+>> Setting up a major mode for Typescript. At this point I haven't the
+   slightest idea about shit about Typescript. Alright that's a lie but
+   i've never coded in it. However, Dave Grey has a new course on it
+   and System Crafters has a full video on how to set it up in Emacs
+   so there's like no better language for me to learn right now to
+   get started coding in Emacs than Typescript. Plus it's popular.
+
+#+begin_src emacs-lisp
+  ;; --------------------------------------------------
+  ;; react & typescript
+  ;; --------------------------------------------------
+  ;; downloading json-mode
+  ;; downloading typescript-mode
+  ;; telling emacs to turn on the mode in .ts files
+  ;; setting hook to connect to lsp
+  ;; setting indentation to two tabs
+  ;; --------------------------------------------------
+  (use-package json-mode)
+
+  (use-package rjsx-mode
+    :mode "\\.js\\'"
+    :hook ((rjsx-mode . lsp-deferred)
+	   (rjsx-mode . emmet-mode)))
+
+  (use-package typescript-mode
+   :mode "\\.ts\\'"
+   :hook (typescript-mode . lsp-deferred))
+  ;; --------------------------------------------------
+  ;; end typescript
+  ;; --------------------------------------------------
+#+end_src
+
+
+* c & c++
+-------
+>> More Complicated then I anticipated (Downloaded Clang & Bear)
+
+#+begin_src
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
+#+end_src
+
+[[https://www.youtube.com/watch?v=28Z8CJ8qRpY&t=251s][Reference]]
+
+
+* source blocks
+----------------------
+
+>> For some reason when I included this piece of code before
+   the scheme source block it, emacs could not find the
+   ob-racket package. So, I put this piece of code after all
+   of my language configurations. Honestly, it doesn't really
+   bother me because aesthetically it still makes sence.
+
+#+begin_src emacs-lisp
+    ;; --------------------------------------------------
+    ;; source blocks
+    ;; --------------------------------------------------
+    ;; preventing java blocks from making files
+    ;; loading languages for source blocks
+    ;; --------------------------------------------------
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+      '((emacs-lisp . t)
+	(python . t)
+	(racket . t)
+	(C . t)
+	(java . t)
+	(js . t)))
+    ;; --------------------------------------------------
+    ;; end source blocks
+    ;; --------------------------------------------------
+#+end_src
+

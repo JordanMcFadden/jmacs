@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       0B7DFB84-54C7-4279-BAF1-519D82E19340
+:END:
+#+title: react
+#+author: jordan mcfadden
+#+date: march 16, 2023
+#+description: fuck w/ this page
+#+category: brain
+
+
+* [[id:D61E4EBB-FF15-4AB6-A14F-D10808EE7CB7][react-intro]]
+* [[id:B4907492-FBED-4A81-8E89-F4A984CF7145][react-app&jsx]]
+* [[id:E5C07094-3F27-4171-A717-8B4F641B963D][react-functionalcomponents]]
+* [[id:F505431B-CFCC-4AB5-961C-CC9A3308BA9C][react-applyingcss]]
+

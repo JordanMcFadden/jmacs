@@ -1,0 +1,109 @@
+/* Begin Reset */
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {display: block;}
+/* End Reset */
+
+/* Utility Classes */
+.nowrap
+{
+    white-space: nowrap;
+}
+
+.offscreen
+{
+    position: absolute;
+    left: -10000px;
+}
+
+.filter
+{
+    background-color: rgb(251, 210, 156);
+    background-image: url(/img/map-2176x1451.png);
+    background-repeat: repeat;
+    background-position: top right;
+    background-size: cover;
+}
+/* End Utility Classes */
+
+body
+{
+    font-family: monospace;
+    min-height: 100vh;
+    background-color: aliceblue;
+    background-image: url("/img/bubbles.png"), linear-gradient(to left, steelblue, white);
+    background-repeat: repeat-y, no-repeat;
+    background-position: right center;
+    background-size: 20%, auto;
+}
+
+
+.hero
+{
+    border-bottom: 2px solid #1e1e1e;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+
+    background-color: hsla(0, 0%, 12%, 0.40)
+}
+
+.profile-pic-figure
+{
+    width: 35%;
+}
+
+.profile-pic-figure img
+{
+    width: 100%;
+    height: auto;
+    min-width: 100px;
+    border: 5px double gray;
+    border-radius: 50%;
+}
+
+.h1
+{
+    font-size: 500%;
+    color: aliceblue;
+    text-shadow: 2px 2px 5px #1e1e1e;
+    /* background-color: hsla(0, 0%, 12%, 0.40);
+    padding: 0.25rem;
+    border-radius: 10px; */
+
+}
+
+
+.example
+{
+    margin-top: 1rem;
+    padding-left: 20px;
+    border: 1px solid red;
+}
+
+.example img
+{
+    width: 25%;
+    height: auto;
+}
+
+.clip
+{
+    font-weight: 800;
+    font-size: 18rem;
+    text-align: center;
+    background-image: url(/img/scenic-2200x1331.png);
+    background-size: 100%;
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: hsla(0, 0%, 0%, 0.20);
+}
+

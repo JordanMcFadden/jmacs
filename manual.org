@@ -1,0 +1,46 @@
+#+title: the jmacs manual
+#+author: jordan mcfadden
+#+date: march 14, 2023
+#+description: don't fuck w/ page
+#+category: system
+
+                                         [[file:config.org][configuration]] | [[file:courses/notes/20230316104750-brain.org][brain index]] |
+=====================                                                                                                              
+* TODO problem    =                      welcome to the jmacs manual, here you will find information on how to use emacs              
+=====================                                                                                                             
+* problem type    =                      you see the templates to the left? i made those to give you an idea of what my    
+* pictures        =                      brain is thinking every time i write something in emacs. a consistent and         
+* knowns/unknowns =                      organized header hiearchy. is it possible to be completely perfect everyday?         
+* toolbox         =                      no, i don't think so and you are going to make mistakes but it is okay. just           
+* solve           =                      make sure that you have the tags at the top of each page and organized headers.       
+=====================                                                                                                                
+
+=====================                                                                                                         
+* TODO reading    =                      remember to build your network of notes. this is what seperates emacs from vscode     
+=====================                                                                                                         
+* connections     =                      connect main index pages to the brain page and see how interconnected you can make       
+* main ideas      =                      jmacs. roam is the key feature of this system and to efficently roam around emacs  
+* key words       =                      you must know where the pages you create are supposed to go. do not just make       
+* quizlets        =                      random files look at the org-roam-ui and allocated them appropriate. use good page  
+* summary         =                      page names so you can find nodes easier. remember supposed to be abstract but f it. 
+=====================                                                                                                            
+
+=====================
+* TODO lecture    =                      under construction...........
+=====================
+* connections     =            
+* take aways      =            
+* key words       =            
+* examples        =            
+* study guide     =            
+=====================
+
+=====================
+* TODO package    =                      under construction............
+=====================
+* name            =
+* description     =
+* problems        =
+* references      =
+* code            =
+=====================

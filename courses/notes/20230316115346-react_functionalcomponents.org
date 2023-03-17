@@ -1,0 +1,86 @@
+:PROPERTIES:
+:ID:       E5C07094-3F27-4171-A717-8B4F641B963D
+:END:
+#+title: react-functionalcomponents
+#+author: jordan mcfadden
+#+date: march 16, 2023
+#+description: fuck w/ this page
+#+category: brain
+
+* functional components
+-----------------------
+>> the way I understand functional components are just html elements given
+   there own files that are then imported into app component. app being
+   the parent component.
+
+
+* creating functional components
+--------------------------------
+>> easy to create components just have to add a file & import it into
+   app file
+
+#+begin_src js
+
+// header component example
+const Header = () => {
+      return (
+	  <header>
+	    <h1>
+	      <h1>Groceries List</h1>
+	    </h1>
+	  </header>
+      )
+}
+
+export default Header;
+
+
+//app component example
+import './App.css';
+import Header from './Header';
+
+function App() {
+  return (
+    <div className="App">
+      <Header />
+    </div>
+  );
+}
+
+export default App;
+
+#+end_src
+
+
+* functionallity
+----------------
+>> any function written in javascript can be imported onto page.
+
+#+begin_src js
+  const Content = () => {
+    const name = "Jordan";
+    const handleCarChange = () => {
+        const cars = ['Honda', 'Toyota', 'Altima'];
+        const int = Math.floor(Math.random() * 3);
+        return cars[int];
+    }
+    return (
+	<main>
+	  <p>
+            Hello {handleCarChange()}!
+          </p>
+          <p>
+            Hello {name}!
+          </p>
+        </main>
+    )
+}
+
+export default Content;
+#+end_src 
+
+
+* react dev tools
+-----------------
+>> can see all components by opening inspect, clicking arrows by performance
+   insight & clicking components.

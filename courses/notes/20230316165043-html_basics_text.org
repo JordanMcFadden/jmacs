@@ -1,0 +1,72 @@
+:PROPERTIES:
+:ID:       1F2C1C39-2DFD-476E-9627-1E0666214301
+:END:
+#+title: html-basics&text
+#+author: jordan mcfadden
+#+date: march 16, 2023
+#+description: fuck w/ this page
+#+category: brain
+
+* body tag content
+------------------
+>> the body tag content houses all of the information that appears on the
+   actualy document(what client sees). 
+
+
+* header hiearchy
+-----------------
+>> remember to keep a consistent header hiearchy. it helps the browser &
+   screen readers navigate a html document. it also helps a developer
+   keep a html document organized. there should only be one main header
+   and you really don't want more than 3 levels of headings.
+
+
+* block elements
+----------------
+>> block elements are elements that take up an entire line of an html
+   document. here are some examples of block elements.
+
+#+begin_src html
+  <h1>       main heading
+  <h2>       sub heading
+   .
+   .
+   .
+  <h6>       heading go to like 6 levels
+  <p>        paragraphs or text blocks
+  <br>       line break
+  <address>  addresses
+  <hr>       horizontal rule
+#+end_src
+
+
+* inline elements
+-----------------
+>> inline elements are elements that only take up the amount of space
+   allocated to them. here are some examples.
+
+#+begin_src html
+  <em>                          italicize
+  <strong>                      bold
+  <u>                           underline
+  <mark>                        highlight
+  <abbr title = "full name">    abbreviation, title attribute shows tool tip
+  <code>                        displays code onto page
+  <time datetime = "01:00">     for times of day, provides meaning to developer and browser,
+  <time datetime = "PT3H">      for duration spent, 3H stands for 3 hours  
+#+end_src
+
+
+* html entities
+---------------
+>> entities are basically just keywords used to display characters onto an
+   html document. like a copyright sign or tab. here are some examples.
+   follow this link to see a list of [[https://www.w3schools.com/html/html_entities.asp][entities]]
+
+#+begin_src html
+&nbsp;  tab basically
+&lt;    less than symbol 
+&copy;  copyright symbol
+&gt;    greater than symbol
+#+end_src
+   

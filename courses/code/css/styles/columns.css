@@ -1,0 +1,36 @@
+body
+{
+    font-family: monospace;
+    font-size: 1.5rem;
+}
+
+h2
+{
+    margin-top: 0;
+    background-color: #1e1e1e;
+    color: whitesmoke;
+    padding: 1rem;
+}
+
+.columns
+{
+    columns: 4 250px;
+    column-rule: 3px solid #1e1e1e;
+    column-gap: 3rem;
+    break-inside: avoid;
+    break-before: column;
+}
+
+.columns p
+{
+    margin-top: 0;
+}
+
+.columns .quote
+{
+    margin-top: 2rem;
+    font-size: 3rem;
+    text-align: center;
+    color: #1e1e1e;
+    column-span: all;
+}

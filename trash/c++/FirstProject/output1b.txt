@@ -1,0 +1,12 @@
+values: 19 3 14 12 1 8 15 4 6 13 11 9 5 10 17 8 2
+rowPos: 0 2 4 8 11 14
+colPos: 2 5 0 3 0 1 4 5 1 2 4 0 3 5 0 2 4
+
+Most influential user: 0
+
+Most active user: 3
+
+Users ranked by Influentiality: 0 2 4 5 3 1
+
+Users ranked by Activity: 3 2 5 1 4 0
+CRM Object Destroyed!!

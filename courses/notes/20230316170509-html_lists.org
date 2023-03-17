@@ -1,0 +1,62 @@
+:PROPERTIES:
+:ID:       3ACAD330-88C6-46EF-B41D-6BA91E3A73FB
+:END:
+#+title: html-lists
+#+author: jordan mcfadden
+#+date: march 16, 2023
+#+description: fuck w/ this page
+#+category: brain
+
+* lists & items
+-------
+>> there are four different types of lists in html, this page will only show
+   three out of the four because one is only used in forms. lists are
+   helpful for a variety of reason but mostly for navigation items. list
+   items are used for both ordered & unordered lists.
+   
+#+begin_src html
+<li> list item
+#+end_src
+
+
+* ordered lists
+---------------
+>> ordered lists are just numbered lists, can be reordered and things of
+   that nature using css. (1. 2. 3.)
+
+#+begin_src html
+  <ol>
+    <li></li>
+  </ol>
+#+end_src
+   
+
+* unordered lists
+-----------------
+>> unordered lists are just bulleted lists can be changed using css aswell.
+
+#+begin_src html
+  <ul>
+    <li></li>    
+  </ul>
+#+end_src
+
+
+* description lists
+-------------------
+>> consists of a description term & details. like for example you want
+   to make a list of places you wan't to visit and then why. this is
+   where a description list would be your best option.
+
+#+begin_src html
+<dl>
+  <dt>The North Pole</dt>
+  <dd>I hear it is <strong>cold</strong>!</dd>
+
+  <dt>The South Pole</dt>
+  <dd>Heard here is also cold.</dd>
+
+ <dt>Antarctica</dt>
+ <dd>Obviously it is cold here!</dd>
+</dl
+#+end_src

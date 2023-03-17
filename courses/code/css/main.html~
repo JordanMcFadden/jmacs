@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jordan McFadden">
+    <meta name="description" content="The Website of links to css concepts">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Second CSS Course</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+</head>
+
+<body>
+
+    <header>
+        <h1>CSS Concepts</h1>
+        <a href="notes.txt">Go to Notes</a>
+        <nav>
+            <dl>
+                <dt>
+                    <p>Lesson 1</p>
+                </dt>
+                <dd>
+                    <a href="views/selectors.html">Selectors</a>
+                </dd>
+
+                <dt>
+                    <p>Lesson 2:</p>
+                </dt>
+                <dd>
+                    <a href="views/colors.html">Colors</a>
+                </dd>
+
+                <dt>
+                    <p>Lesson 3:</p>
+                </dt>
+                <dd>
+                    <a href="views/units.html">Units</a>
+                </dd>
+
+                <dt>
+                    <p>Lesson 4:</p>
+                </dt>
+                <dd>
+                    <a href="views/boxmodel.html">Box Model</a>
+                </dd>
+
+                <dt>
+                    <p>Lesson 5:</p>
+                </dt>
+                <dd>
+                    <a href="views/typography.html">Typography</a>
+                </dd>
+
+                <dt>
+                    <p>Lesson 6:</p>
+                </dt>
+                <dd>
+                    <a href="views/links.html">Links</a>
+                </dd>
+
+                <dt>
+                    <p>Lesson 7:</p>
+                </dt>
+                <dd>
+                    <a href="views/lists.html">Lists</a>
+                </dd>
+
+                <dt>
+                    <p>Lesson 8:</p>
+                </dt>
+                <dd>
+                    <a href="views/display.html">Display</a>
+                </dd>
+
+                <dt>
+                    <p>Lesson 9:</p>
+                </dt>
+                <dd>
+                    <a href="views/floatsclears.html">Floats and Clears</a>
+                </dd>
+
+                <dt>
+                    <p>Lesson 10:</p>
+                </dt>
+                <dd>
+                    <a href="views/columns.html">Columns</a>
+                </dd>
+                <dt>
+                    <p>Lesson 11:</p>
+                </dt>
+                <dd>
+                    <a href="views/positioning.html">Positioning</a>
+                </dd>
+                <dt>
+                    <p>Lesson 12:</p>
+                </dt>
+                <dd>
+                    <a href="views/images.html">Images</a>
+                </dd>
+                <dt>
+                    <p>Lesson 13:</p>
+                </dt>
+                <dd>
+                    <a href="views/mediaquery.html">Media Queries</a>
+                </dd>
+                <dt>
+                    <p>Lesson 14:</p>
+                </dt>
+                <dd>
+                    <a href="views/pseduo.html">Pseudo</a>
+                </dd>
+            </dl>
+        </nav>
+    </header>
+</body>
+
+</html>

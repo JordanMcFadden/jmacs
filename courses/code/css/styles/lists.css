@@ -1,0 +1,45 @@
+body
+{
+    padding: 5% 10%;
+    font-size: 2rem;
+    font-family: monospace;
+    background: dimgray;
+}
+
+ol
+{
+    list-style-type: decimal-leading-zero;
+}
+
+ul
+{
+    list-style-type: square;
+    text-align: center;
+    list-style-position: inside;
+    line-height: 1.6;
+    /* list-style-image: url('../img/checkmark.png'); */
+}
+
+li
+{
+    font-weight: bold;
+}
+
+ul li 
+{
+    text-decoration: overline underline;
+}
+
+ul li:nth-child(even)
+{
+    text-decoration: wavy overline underline;
+    color: papayawhip
+}
+
+ul ::marker
+{
+    color: black;
+    font-family: fantasy;
+    font-size: 1em;
+    content: "Only $5>>"
+}

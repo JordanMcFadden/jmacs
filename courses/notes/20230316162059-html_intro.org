@@ -1,0 +1,33 @@
+:PROPERTIES:
+:ID:       17C50F4C-45DD-4B93-9EEF-72A83630A634
+:END:
+#+title: html-intro
+#+author: jordan mcfadden
+#+date: march 16, 2023
+#+description: fuck w/ this page
+#+category: brain
+
+* basic structure
+-----------------
+>> the most basic structure of a html document is as follows
+#+begin_src html
+<!Doctype html>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body>
+
+    </body>
+</html>
+#+end_src
+
+
+* language attribute
+--------------------
+>> exactly what it sounds like, tells the browser what language the html
+   document is written in. located inside of beginning html tag.
+
+#+begin_src html
+<html lang = "en">
+#+end_src

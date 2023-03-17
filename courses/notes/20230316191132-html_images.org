@@ -1,0 +1,79 @@
+:PROPERTIES:
+:ID:       7BAA8231-D94A-4E5F-8FE3-0252F6FE079C
+:END:
+#+title: html-images
+#+author: jordan mcfadden
+#+date: march 16, 2023
+#+description: fuck w/ this page
+#+category: brain
+
+* displaying an images
+----------------------
+>> to display an image you use an img tag w/ a src attribute
+   that holds some kind of path. there are many attributes for
+   images that all have a purpose.
+   
+#+begin_src html
+<img src="path">  
+#+end_src
+
+
+* alt attribute
+--------------
+>> gives a alternative img path to open if src path is unavailable
+
+#+begin_src html
+<img src="path" alt="altpath">
+#+end_src
+
+
+* title attribute
+--------------
+>> gives an image a tooltip when hovered over
+
+#+begin_src html
+<img src="pathtohtmllogo" title="HTML 5 Logo">
+#+end_src
+
+
+* width & height attributes
+--------------
+>> sets the dimensions of an image inside of the document, doing
+   it this way prevents comulative layout shift (page shifting
+   or something on page moves when messed w/), can be overwritten
+   with css but it helps the browser.
+
+#+begin_src html
+<img src="path" width="300px" height="300px">
+#+end_src
+
+
+* loading attribute
+-------------------
+>> determines when an image is loaded. setting the attribute to
+   eager (default) tells the broswer to load an image when a
+   page is opened. setting the attribute to lazy loads the
+   image only when a user scrolls close to it. this should
+   be used when images are "below the fold" or do not appear
+   on the page at startup.
+
+#+begin_src html
+<img src="path" loading="lazy">
+#+end_src
+
+* figures
+---------
+>> all images should be inside of the figure tag. a semantic tags
+   that has elements that give extra meaning to images. here is
+   an example of good image practice.
+   
+#+begin_src html
+  <figure>
+     <img src="img/html_logo_300x300.png" alt="HTML5 Logo" title="I am learning HTML5" width="300" height="300">
+     <figcaption>
+       HTML Logo Example
+     </figcaption>
+  </figure>
+#+end_src
+see [[file:20230316193515-html_semantictags.org][semantic tags]]
+

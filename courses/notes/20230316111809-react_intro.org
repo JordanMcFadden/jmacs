@@ -1,0 +1,50 @@
+:PROPERTIES:
+:ID:       D61E4EBB-FF15-4AB6-A14F-D10808EE7CB7
+:END:
+#+title: react-intro
+#+author: jordan mcfadden
+#+date: march 16, 2023
+#+description: fuck w/ this page
+#+category: brain
+
+* getting started
+-----------------
+>> need node & create-react-app, to start run npm start in root project directory
+
+
+* public folder
+---------------
+>> won't really work in public folder, index is the only important file and it is only
+   important when we need to add fonts or things of that nature.
+
+
+* git
+-----
+>> there is a git ignore file but not a git folder like in the course, I don't know why
+   but I will figure it out. git ignore looks fine.
+
+   
+* index
+-------
+>> only one index.html file and the rest is rendered using react.
+
+
+* don't needs
+-------------
+>> for the course we don't need reportWebVitals.js, setupTests, App.test.js
+
+
+* package.json
+--------------
+>> holds dependencies & scripts
+
+
+* readme
+--------
+>> gonna change this to an org file
+
+
+* app
+------
+>> app component is the parent component 
+

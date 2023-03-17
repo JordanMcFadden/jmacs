@@ -1,0 +1,30 @@
+html
+{
+    font-size: 22px; 
+}
+
+main
+{
+    font-family: monospace;
+}
+
+p span
+{
+    text-transform: uppercase;
+    background-color: gold;
+}
+
+h1, h2
+{
+    color: blue;
+}
+
+.gray
+{
+    color: gray;
+}
+
+#second
+{
+    font-style: italic;
+}

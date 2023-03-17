@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jordan McFadden">
+    <meta name="description" content="This lesson is about CSS Units">
+    <link rel="stylesheet" href="../css/units.css" type="text/css">
+    <title>CSS Units</title>
+</head>
+
+<body>
+    <header>
+        <h1>CSS Units</h1>
+    </header>
+    <main>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores deleniti asperiores sunt, ipsum dolore
+            corrupti quo dolorum explicabo unde repudiandae consequuntur itaque minus fugit inventore qui. Minus
+            voluptatem quasi omnis!
+        </p>
+    </main>
+</body>
+
+</html>

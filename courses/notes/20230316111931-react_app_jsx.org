@@ -1,0 +1,61 @@
+:PROPERTIES:
+:ID:       B4907492-FBED-4A81-8E89-F4A984CF7145
+:END:
+#+title: react-app&jsx
+#+author: jordan mcfadden
+#+date: march 16, 2023
+#+description: fuck w/ this page
+#+category: brain
+
+* [[file:20230316115346-react_functionalcomponents.org][functional components]]
+-----------------------
+>> modern react apps use functional components not class components. may see in legacy
+   code.
+
+* return statements
+-------------------
+>> return jsx not html (javascript in xml) can directly write javascript code into it,
+   provides a template for the component layout. renders data as text.
+
+* className
+-----------
+>> the same as class in HTML
+
+* using javascript inside of components (examples but no coloring)
+-----------
+>> can't display objects or boolean but strings & numbers can be displayed.
+   functions writeen outside of return can be seen on page & so can variables
+
+#+begin_src js
+  function App() {
+    const name = "jordan";
+    const handleCarChange = () =>
+    {
+	const cars = ['Honda', 'Toyota', 'Altima'];
+	const int = Math.floor(Math.random() * 3);
+	return cars[int];
+    }
+    return
+      (
+      <div className="App">
+	<header className="App-header">
+	  <p>
+	    Hello {name}! //printing variable at the top
+	  </p>
+          <p>
+            Your favorita car brand is {handleCarChange()}! //prints result of function
+          </p>	      
+	  <p>
+	     {"dave"}    // prints dave
+	  </p>
+	  <p>
+	     [1,2,3]   // prints [1,2,3]
+	 </p>
+	 <p>
+	     {true === false}   // can't do this
+	</p>
+	</header>
+      </div>
+    );
+  }
+#+end_src

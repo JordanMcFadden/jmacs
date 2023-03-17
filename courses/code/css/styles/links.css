@@ -1,0 +1,38 @@
+body
+{
+    padding: 10%;
+    font-size: 2rem;
+    font-family: monospace;
+    background-color: hsl(30, 0%, 41%);
+}
+
+main
+{
+    opacity: 0.8;
+}
+
+h1
+{
+    color: hsl(0, 100%, 71%, 0.8);
+}
+
+a
+{
+    cursor: pointer;
+    color: hsl(0, 100%, 71%, 0.8);
+}
+
+a:visited
+{
+    color: hsl(10, 100%, 71%);
+}
+
+a:hover, a:focus
+{
+    color: hsl(20, 100%, 71%);
+}
+
+a:active
+{
+    color: hsl(30, 100%, 71%);
+}

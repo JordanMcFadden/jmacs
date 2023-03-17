@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jordan McFadden">
+    <meta name="description" content="This lesson is about CSS Positioning">
+    <link rel="stylesheet" href="../css/positioning.css" type="text/css">
+    <title>CSS Positioning</title>
+</head>
+
+<body>
+    <section class="page-section" id="one">
+        <header class="red page-header">
+            <h2>Positioning: FlexBox</h2>
+        </header>
+
+
+        <article class="flex-container">
+            <section class="relative box">
+                <h4>1</h4>
+                <section class="absolute">float</section>
+            </section>
+            <section class="box">
+                <h4>2</h4>
+            </section>
+            <section class="box">
+                <h4>3</h4>
+            </section>
+            <section class="box">
+                <h4>4</h4>
+            </section>
+            <section class="box">
+                <h4>5</h4>
+            </section>
+            <section class="box">
+                <h4>6</h4>
+            </section>
+        </article>
+    </section>
+
+    <section class="page-section" id="two" style="margin-bottom: 240px;">
+        <header class="purple page-header">
+            <h2>Positioning: GridBox</h2>
+        </header>
+
+        <section class="grid-section">
+            <header class="header el">
+                <h3>Header</h3>
+            </header>
+            <article class="grid-article">
+                <section class="grid">
+                    <h4>1</h4>
+                </section>
+                <section class="grid">
+                    <h4>2</h4>
+                </section>
+                <section class="grid">
+                    <h4>3</h4>
+                </section>
+                <section class="grid">
+                    <h4>4</h4>
+                </section>
+                <section class="grid">
+                    <h4>5</h4>
+                </section>
+                <section class="grid">
+                    <h4>6</h4>
+                </section>
+            </article>
+            <aside class="sidebar el">
+                <h3>Sidebar</h3>
+            </aside>
+            <footer class="footer el">
+                <h3>Footer</h3>
+            </footer>
+        </section>
+    </section>
+
+    <footer class="page-footer">
+        <nav>
+            <a href="#one">One</a> |
+            <a href="#two">Two</a> |
+        </nav>
+    </footer>
+</body>
+
+</html>

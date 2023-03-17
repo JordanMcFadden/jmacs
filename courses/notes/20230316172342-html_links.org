@@ -1,0 +1,41 @@
+:PROPERTIES:
+:ID:       543D47E1-30F1-4807-8A01-CA559F84CC63
+:END:
+#+title: html-links
+#+author: jordan mcfadden
+#+date: march 16, 2023
+#+description: fuck w/ this page
+#+category: brain
+
+* link guidelines
+-----------------
+1. avoid printing the full web address
+2. avoid saying "this links to"
+3. do not use "click here" (it provides no meaning)
+4. keep link text short
+
+* absolute reference
+--------------------
+>> an absolute reference is one that has https: and .com or
+   something around that. here is an example
+   https://www.notion.so/HTML-5677fe5e0fb348ff9833d06641679fee
+
+* types of links
+----------------
+>> there are absolute references to websites online but you
+   can also link to files on your computer as well as sections
+   of an html page. here are some examples
+
+#+begin_src html
+  <a href="link">             regular link
+  <a href="#section-id">      links to this id on a page
+  <a href="#">                links to the top of page
+  <a href="/">                links to home/root page
+  <a href="tel:">             links to a number
+  <a href="mailto:">          links to a email
+    
+  <a href="imgpath" download>      downloads the image at path
+  <a href="path" target="_blank">  opens in a new tab
+#+end_src
+
+
